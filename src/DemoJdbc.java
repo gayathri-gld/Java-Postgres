@@ -20,8 +20,8 @@ public class DemoJdbc {
 
 
         /* 5.Execute statement*/
-        String query = "SELECT * FROM student";
-        ResultSet rs = stmt.executeQuery(query);
+        String get_query = "SELECT * FROM student";
+        ResultSet rs = stmt.executeQuery(get_query);
 
 
         /* 6.Process results*/

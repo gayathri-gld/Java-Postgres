@@ -16,21 +16,34 @@ public class DemoJdbc {
 
 
         /* 4.Create statement*/
-        Statement stmt = con.createStatement();
+//        Statement stmt = con.createStatement();
+
 
 
         /* 5.Execute statement*/
+        String name = "David Rose";
+        int id = 6;
+        int marks = 40;
         String get_query = "SELECT * FROM student";
-        ResultSet rs = stmt.executeQuery(get_query);
+        String insert_query = "INSERT INTO student VALUES(5, 89, 'Potter')";
+        String update_query = "UPDATE student SET marks = 80 WHERE name='Potter' ";
+        String query = "INSERT INTO student VALUES(?, ?, ?)";
+//        ResultSet rs = stmt.executeQuery(insert_query);
+//        boolean result = stmt.execute(insert_query);
 
+        PreparedStatement stmt = con.prepareStatement(query);
+        stmt.setString(3, name);
+        stmt.setInt(2, marks);
+        stmt.setInt(1, id);
+        stmt.execute();
 
         /* 6.Process results*/
 //        System.out.println(rs.next());
 //        System.out.println(rs.getString("name"));
-        while (rs.next()) {
-            System.out.print(rs.getString(3) + " scored ");
-            System.out.println(rs.getInt(2));
-        }
+//        while (rs.next()) {
+//            System.out.print(rs.getString(3) + " scored ");
+//            System.out.println(rs.getInt(2));
+//        }
 
 
         /* 7. Close*/
